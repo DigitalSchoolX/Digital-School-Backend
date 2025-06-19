@@ -1,0 +1,847 @@
+[{
+  "_id": {
+    "$oid": "68518ab32a618b94c2d3cf98"
+  },
+  "subjectName": "Toán học",
+  "subjectCode": "MATH",
+  "description": "Môn toán học cơ bản và nâng cao",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 3,
+  "weeklyHours": 4,
+  "category": "core",
+  "department": "mathematics",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.011Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.011Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab42a618b94c2d3cf9b"
+  },
+  "subjectName": "Ngữ văn",
+  "subjectCode": "LIT",
+  "description": "Môn ngữ văn Việt Nam",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 3,
+  "weeklyHours": 5,
+  "category": "core",
+  "department": "literature",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.161Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.161Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab42a618b94c2d3cf9e"
+  },
+  "subjectName": "Tiếng Anh",
+  "subjectCode": "ENG",
+  "description": "Tiếng Anh cơ bản và giao tiếp",
+  "gradeLevels": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "core",
+  "department": "english",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.296Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.296Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab42a618b94c2d3cfa1"
+  },
+  "subjectName": "Vật lý",
+  "subjectCode": "PHY",
+  "description": "Môn vật lý cơ bản và nâng cao",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "core",
+  "department": "physics",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.428Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab42a618b94c2d3cfa4"
+  },
+  "subjectName": "Hóa học",
+  "subjectCode": "CHEM",
+  "description": "Môn hóa học cơ bản và nâng cao",
+  "gradeLevels": [
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "core",
+  "department": "chemistry",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.588Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.588Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab42a618b94c2d3cfa7"
+  },
+  "subjectName": "Sinh học",
+  "subjectCode": "BIO",
+  "description": "Môn sinh học cơ bản và nâng cao",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 2,
+  "category": "core",
+  "department": "biology",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.714Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.714Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab42a618b94c2d3cfaa"
+  },
+  "subjectName": "Lịch sử",
+  "subjectCode": "HIST",
+  "description": "Môn lịch sử Việt Nam và thế giới",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 2,
+  "category": "core",
+  "department": "history",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.841Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.841Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab42a618b94c2d3cfad"
+  },
+  "subjectName": "Địa lý",
+  "subjectCode": "GEO",
+  "description": "Môn địa lý Việt Nam và thế giới",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 2,
+  "category": "core",
+  "department": "geography",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:08.977Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:08.977Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab52a618b94c2d3cfb0"
+  },
+  "subjectName": "Giáo dục công dân",
+  "subjectCode": "CIVIC",
+  "description": "Giáo dục công dân và pháp luật",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 1,
+  "weeklyHours": 1,
+  "category": "core",
+  "department": "civic_education",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:09.100Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:09.100Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab52a618b94c2d3cfb3"
+  },
+  "subjectName": "Thể dục",
+  "subjectCode": "PE",
+  "description": "Thể dục thể thao",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 1,
+  "weeklyHours": 2,
+  "category": "core",
+  "department": "physical_education",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:09.266Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:09.266Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab52a618b94c2d3cfb6"
+  },
+  "subjectName": "Tin học",
+  "subjectCode": "IT",
+  "description": "Tin học và công nghệ thông tin",
+  "gradeLevels": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 2,
+  "category": "core",
+  "department": "informatics",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:09.406Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:09.406Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab52a618b94c2d3cfb9"
+  },
+  "subjectName": "Tự nhiên và xã hội",
+  "subjectCode": "NS",
+  "description": "Môn tự nhiên và xã hội tiểu học",
+  "gradeLevels": [
+    1,
+    2,
+    3
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "core",
+  "department": "science",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:09.542Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:09.542Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab52a618b94c2d3cfbc"
+  },
+  "subjectName": "Khoa học",
+  "subjectCode": "SCI",
+  "description": "Môn khoa học tiểu học",
+  "gradeLevels": [
+    4,
+    5
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "core",
+  "department": "science",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:09.670Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:09.670Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab52a618b94c2d3cfbf"
+  },
+  "subjectName": "Đạo đức",
+  "subjectCode": "MORAL",
+  "description": "Môn đạo đức tiểu học",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "credits": 1,
+  "weeklyHours": 1,
+  "category": "core",
+  "department": "civic_education",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:09.877Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:09.877Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab62a618b94c2d3cfc2"
+  },
+  "subjectName": "Âm nhạc",
+  "subjectCode": "MUS",
+  "description": "Âm nhạc và nghệ thuật biểu diễn",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "credits": 1,
+  "weeklyHours": 1,
+  "category": "elective",
+  "department": "music",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:10.044Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:10.044Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab62a618b94c2d3cfc5"
+  },
+  "subjectName": "Mỹ thuật",
+  "subjectCode": "ART",
+  "description": "Mỹ thuật và vẽ",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "credits": 1,
+  "weeklyHours": 1,
+  "category": "elective",
+  "department": "arts",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:10.286Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:10.286Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab62a618b94c2d3cfc8"
+  },
+  "subjectName": "Công nghệ",
+  "subjectCode": "TECH",
+  "description": "Công nghệ và kỹ thuật",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 2,
+  "category": "vocational",
+  "department": "technology",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:10.425Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:10.425Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab62a618b94c2d3cfcb"
+  },
+  "subjectName": "Hoạt động trải nghiệm",
+  "subjectCode": "EXP",
+  "description": "Hoạt động trải nghiệm sáng tạo",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 1,
+  "weeklyHours": 2,
+  "category": "special",
+  "department": "other",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:10.617Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:10.617Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab62a618b94c2d3cfce"
+  },
+  "subjectName": "Giáo dục quốc phòng và an ninh",
+  "subjectCode": "DEFSE",
+  "description": "Giáo dục quốc phòng và an ninh",
+  "gradeLevels": [
+    10,
+    11,
+    12
+  ],
+  "credits": 1,
+  "weeklyHours": 1,
+  "category": "core",
+  "department": "civic_education",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:10.745Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:10.745Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab62a618b94c2d3cfd1"
+  },
+  "subjectName": "Tiếng Pháp",
+  "subjectCode": "FR",
+  "description": "Tiếng Pháp cơ bản",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "elective",
+  "department": "foreign_language",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:10.878Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:10.878Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab72a618b94c2d3cfd4"
+  },
+  "subjectName": "Tiếng Trung",
+  "subjectCode": "CN",
+  "description": "Tiếng Trung Quốc cơ bản",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "elective",
+  "department": "foreign_language",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:11.023Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:11.023Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab72a618b94c2d3cfd7"
+  },
+  "subjectName": "Tiếng Nhật",
+  "subjectCode": "JP",
+  "description": "Tiếng Nhật cơ bản",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "elective",
+  "department": "foreign_language",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:11.145Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:11.145Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab72a618b94c2d3cfda"
+  },
+  "subjectName": "Tiếng Đức",
+  "subjectCode": "DE",
+  "description": "Tiếng Đức cơ bản",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "elective",
+  "department": "foreign_language",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:11.308Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:11.308Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab72a618b94c2d3cfdd"
+  },
+  "subjectName": "Tiếng Nga",
+  "subjectCode": "RU",
+  "description": "Tiếng Nga cơ bản",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 2,
+  "weeklyHours": 3,
+  "category": "elective",
+  "department": "foreign_language",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:11.474Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:11.474Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab72a618b94c2d3cfe0"
+  },
+  "subjectName": "Toán nâng cao",
+  "subjectCode": "MATHX",
+  "description": "Toán học nâng cao và Olympic",
+  "gradeLevels": [
+    10,
+    11,
+    12
+  ],
+  "credits": 4,
+  "weeklyHours": 5,
+  "category": "elective",
+  "department": "mathematics",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:11.611Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:11.611Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab72a618b94c2d3cfe3"
+  },
+  "subjectName": "Văn chuyên",
+  "subjectCode": "LITX",
+  "description": "Ngữ văn chuyên và sáng tác",
+  "gradeLevels": [
+    10,
+    11,
+    12
+  ],
+  "credits": 4,
+  "weeklyHours": 5,
+  "category": "elective",
+  "department": "literature",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:11.758Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:11.758Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab72a618b94c2d3cfe6"
+  },
+  "subjectName": "Tiếng Anh nâng cao",
+  "subjectCode": "ENGX",
+  "description": "Tiếng Anh nâng cao và IELTS",
+  "gradeLevels": [
+    10,
+    11,
+    12
+  ],
+  "credits": 4,
+  "weeklyHours": 5,
+  "category": "elective",
+  "department": "english",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:11.889Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:11.889Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab82a618b94c2d3cfe9"
+  },
+  "subjectName": "Tư vấn và định hướng",
+  "subjectCode": "GUID",
+  "description": "Tư vấn học tập và định hướng nghề nghiệp",
+  "gradeLevels": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 1,
+  "weeklyHours": 1,
+  "category": "special",
+  "department": "other",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:12.061Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:12.061Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68518ab82a618b94c2d3cfec"
+  },
+  "subjectName": "Môi trường",
+  "subjectCode": "ENV",
+  "description": "Giáo dục môi trường",
+  "gradeLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "credits": 1,
+  "weeklyHours": 1,
+  "category": "special",
+  "department": "science",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-06-17T15:33:12.243Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-17T15:33:12.243Z"
+  },
+  "__v": 0
+}]
