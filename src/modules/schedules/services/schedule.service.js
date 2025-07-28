@@ -25,6 +25,7 @@ class ScheduleService {
         scheduleType = "MONDAY_TO_SATURDAY",
         startDate: customStartDate,
         endDate: customEndDate,
+        semester, // thêm trường semester
       } = data;
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -111,6 +112,7 @@ class ScheduleService {
           endDate: endDate,
           lessons: [],
           createdBy: currentUser._id,
+          semester: semester, // lưu học kỳ
         });
 
         const savedWeeklySchedule = await weeklySchedule.save();
@@ -352,7 +354,6 @@ class ScheduleService {
         "_id"
       );
       const userIds = usersInClass.map((u) => u._id);
-      const PersonalActivity = require("../models/personal-activity.model");
       const studentPersonalActivities = await PersonalActivity.find({
         user: { $in: userIds },
         date: { $gte: startDate, $lte: endDate },
@@ -396,14 +397,30 @@ class ScheduleService {
         throw new Error(`Academic year ${academicYear} not found`);
       }
 
-      const startDate = this.calculateWeekStartDate(
-        academicYearDoc.startDate,
-        weekNumber
-      );
-      const endDate = this.calculateWeekEndDate(
-        startDate,
-        "MONDAY_TO_SATURDAY"
-      );
+      const weeklySchedule = await WeeklySchedule.findOne({
+        academicYear: academicYearDoc._id,
+        weekNumber: weekNumber,
+      }).select("startDate endDate");
+
+      let startDate, endDate;
+      
+      if (weeklySchedule) {
+        // Sử dụng startDate và endDate từ weekly schedule nếu có
+        startDate = weeklySchedule.startDate;
+        endDate = weeklySchedule.endDate;
+        console.log(`✅ Found weekly schedule: ${startDate.toISOString()} - ${endDate.toISOString()}`);
+      } else {
+        // Fallback về cách tính cũ
+        startDate = this.calculateWeekStartDate(
+          academicYearDoc.startDate,
+          weekNumber
+        );
+        endDate = this.calculateWeekEndDate(
+          startDate,
+          "MONDAY_TO_SATURDAY"
+        );
+        console.log(`⚠️ No weekly schedule found, using calculated dates: ${startDate.toISOString()} - ${endDate.toISOString()}`);
+      }
 
       const lessons = await Lesson.find({
         teacher: teacherId,
@@ -417,6 +434,8 @@ class ScheduleService {
         .populate("subject", "subjectName subjectCode")
         .populate("timeSlot", "period startTime endTime type")
         .sort("scheduledDate timeSlot.period");
+
+
 
       // Không gán personalActivity vào từng lesson nữa
       const lessonsWithDayInfo = lessons.map((lesson) => {
@@ -438,10 +457,22 @@ class ScheduleService {
       });
 
       // Lấy tất cả hoạt động cá nhân của giáo viên trong tuần (theo date, period)
-      const teacherPersonalActivities = await PersonalActivity.find({
+      // Sử dụng cùng startDate và endDate như lessons để đảm bảo khớp
+      let teacherPersonalActivities = await PersonalActivity.find({
         user: teacherId,
         date: { $gte: startDate, $lte: endDate },
       });
+
+      // Nếu không tìm thấy personal activities với date range mới, thử với date range cũ
+      if (teacherPersonalActivities.length === 0) {
+        const oldStartDate = this.calculateWeekStartDate(academicYearDoc.startDate, weekNumber);
+        const oldEndDate = this.calculateWeekEndDate(oldStartDate, "MONDAY_TO_SATURDAY");
+        
+        teacherPersonalActivities = await PersonalActivity.find({
+          user: teacherId,
+          date: { $gte: oldStartDate, $lte: oldEndDate },
+        });
+      }
 
       return {
         teacherId,
@@ -691,7 +722,7 @@ class ScheduleService {
     });
     const AcademicYear = require("../models/academic-year.model");
     const allAcademicYears = await AcademicYear.find();
-    const { startDate, endDate, academicYear, weekNumber } = options;
+    const { startDate, endDate, academicYear, weekNumber, semester } = options;
     let academicYearObj = null;
     if (academicYear) {
       academicYearObj = allAcademicYears.find(
@@ -799,6 +830,7 @@ class ScheduleService {
         Tiết: period,
         Tuần: week,
         Buổi: session,
+        "Bài học": topic, // Thêm dòng này
       } = row;
       const classObj = allClasses.find((c) => c.className === className);
       if (!classObj) {
@@ -854,11 +886,15 @@ class ScheduleService {
       const weekKey = `${classObj._id}_${week}`;
       let weeklySchedule = weeklyScheduleMap.get(weekKey);
       if (!weeklySchedule) {
+        // Tìm weekly schedule hiện có với điều kiện chính xác hơn
         weeklySchedule = await WeeklySchedule.findOne({
           class: classObj._id,
+          academicYear: academicYearObj._id,
           weekNumber: weekNumber || week,
         });
+        
         if (!weeklySchedule) {
+          // Tạo mới weekly schedule với startDate và endDate từ options
           weeklySchedule = new WeeklySchedule({
             class: classObj._id,
             academicYear: academicYearObj._id,
@@ -867,7 +903,13 @@ class ScheduleService {
             endDate: new Date(endDate),
             lessons: [],
             createdBy: currentUser._id,
+            semester: semester, // lưu học kỳ
           });
+          await weeklySchedule.save();
+        } else {
+          // Cập nhật startDate và endDate của weekly schedule hiện có
+          weeklySchedule.startDate = new Date(startDate);
+          weeklySchedule.endDate = new Date(endDate);
           await weeklySchedule.save();
         }
         weeklyScheduleMap.set(weekKey, weeklySchedule);
@@ -882,7 +924,7 @@ class ScheduleService {
         scheduledDate: scheduledDate,
         type: isSpecial ? "fixed" : "regular",
         status: "scheduled",
-        topic: subjectName,
+        topic: topic || subjectName, // Ưu tiên topic, fallback sang tên môn học
         createdBy: currentUser._id,
       });
       await lesson.save();
@@ -894,20 +936,25 @@ class ScheduleService {
     // Sau khi import xong các lesson từ file Excel, lấp đầy lesson empty cho các slot còn thiếu
     // Gom lesson theo tuần/lớp
     for (const [weekKey, weeklySchedule] of weeklyScheduleMap.entries()) {
-      // Lấy lại startDate, endDate từ weeklySchedule
+      // Sử dụng startDate và endDate từ options thay vì từ weeklySchedule
       const {
-        startDate,
         class: classId,
         academicYear,
         createdBy,
       } = weeklySchedule;
       // Lấy timeSlots
       const allTimeSlots = await TimeSlot.find();
-      for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
-        // 0: Thứ 2, 6: Chủ nhật
-        const scheduledDate = new Date(
-          new Date(startDate).getTime() + dayIndex * 24 * 60 * 60 * 1000
-        );
+      
+      // Tính toán số ngày giữa startDate và endDate
+      const startDateObj = new Date(startDate);
+      const endDateObj = new Date(endDate);
+      const daysDiff = Math.ceil((endDateObj - startDateObj) / (1000 * 60 * 60 * 24)) + 1;
+      
+      for (let dayIndex = 0; dayIndex < daysDiff; dayIndex++) {
+        // Tính ngày dựa trên startDate từ options
+        const scheduledDate = new Date(startDateObj);
+        scheduledDate.setDate(startDateObj.getDate() + dayIndex);
+        
         for (let period = 0; period < 10; period++) {
           // Kiểm tra đã có lesson ở slot này chưa
           const hasLesson = await Lesson.findOne({
