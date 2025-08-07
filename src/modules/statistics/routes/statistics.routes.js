@@ -8,6 +8,7 @@ const teachingProgressValidation = require("../middleware/teaching-progress.vali
 router.use(authMiddleware.protect);
 
 // Thống kê sĩ số toàn trường theo ngày
+//API: /api/statistics/daily
 router.get('/daily', 
   authMiddleware.authorize("admin", "manager"), 
   statisticsController.getDailySchoolStatistics
@@ -23,6 +24,12 @@ router.get('/weekly',
 router.get('/teacher-attendance', 
   authMiddleware.authorize("admin", "manager"), 
   statisticsController.getTeacherAttendanceStatistics
+);
+
+// Thống kê sĩ số giáo viên điểm danh cho UI
+router.get('/teacher-rollcall-summary', 
+  authMiddleware.authorize("admin", "manager"), 
+  statisticsController.getTeacherRollcallSummary
 );
 
 // Biểu đồ học sinh theo buổi
